@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="d-flex flex-column">
+        {% for user in users %}
+            <button><a href="{% url 'create_dialog' user.id %}">Написать сообщение {{ user.username }}</a>
+            </button>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

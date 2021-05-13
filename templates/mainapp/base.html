@@ -1,0 +1,109 @@
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link
+        href="{% static 'css/style.css' %}"
+        rel="stylesheet"/>
+
+<style>
+    @media only screen and (min-width: 768px) {
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/general/">Kaloriner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+                {% if user.is_authenticated %}
+                    <div class="d-flex flex-row">
+                        <a class="nav-link" href="http://127.0.0.1:8000/dialogs/">Диалоги</a>
+                        <a class="nav-link" href="http://127.0.0.1:8000/compare/">Сравнение</a>
+                        <a class="nav-link" href="http://127.0.0.1:8000/all_users/">Написать сообщение</a>
+                    </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Каталог
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Компьютеры</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/cpus/">Процессоры</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/gpus/">Видеокарты</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/rams/">Оперативная память</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/hdds/">HDD</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/motherboards/">Материнские платы</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/cases/">Корпусы</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/powerunits/">Блоки питания</a>
+                        </div>
+                        {% else %}
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Каталог
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Компьютеры</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/cpus/">Процессоры</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/gpus/">Видеокарты</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/rams/">Оперативная память</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/hdds/">HDD</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/motherboards/">Материнские платы</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/cases/">Корпусы</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/powerunits/">Блоки питания</a>
+                {% endif %}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            {% if user.is_authenticated %}
+                <h3 class="text-white">Добро пожаловать {{ user.username }}</h3>
+                <button class="btn btn-light" type="button"><a class="text-dark"
+                                                               href="http://127.0.0.1:8000/accounts/logout/">Выйти</a>
+                </button>
+            {% else %}
+                <button class="btn btn-light" type="button"><a class="text-dark"
+                                                               href="http://127.0.0.1:8000/accounts/login/">Войти</a>
+                </button>
+                <button class="btn btn-light" type="button"><a class="text-dark" href="http://127.0.0.1:8000/signup/">Зарегистрироваться</a>
+                </button>
+            {% endif %}
+        </form>
+    </div>
+    <!--/.nav-collapse -->
+</nav>
+
+<body>
+{% block main %}
+{% endblock %}
+
+{% block title %}
+    <h1 class="text-center">Добро пожаловать в наш интернет магазин Kaloriner</h1>
+    <h1 class="text-center">Чтобы посмотреть наш каталог, наведите на слово "Каталог" в меню</h1>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+</body>
+
+<script>
+    $('.dropdown-toggle').click(function (e) {
+        if ($(document).width() > 768) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            if (url !== '#') {
+                window.location.href = url;
+            }
+        }
+    });
+</script>

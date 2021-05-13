@@ -1,0 +1,59 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="">
+
+        <a href=""><img src="{{ object.image.url }}" alt=""></a>
+        <div class="w-50 d-flex flex-column">
+            <h3>Характеристики</h3>
+            <table>
+                <tbody>
+                    <tr class="border">
+                        <td>Год выпуска</td>
+                        <td>{{ object.release_year }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Изготовитель</td>
+                        <td>{{ object.manufacturer }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Модель</td>
+                        <td>{{ object.model }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Цвет</td>
+                        <td>{{ object.color }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Форм-фактор</td>
+                        <td>{{ object.form_factor }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Материал</td>
+                        <td>{{ object.material }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Высота, мм</td>
+                        <td>{{ object.height }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Ширина, мм</td>
+                        <td> {{ object.width }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Глубина, мм</td>
+                        <td>{{ object.depth }}</td>
+                    <tr>
+                    <tr class="border">
+                        <td>Максимальный развер материнской платы</td>
+                        <td>{{ object.max_size_of_motherboard }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+{% endblock content %}
