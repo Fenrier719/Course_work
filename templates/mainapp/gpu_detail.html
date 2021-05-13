@@ -1,0 +1,47 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="">
+
+        <a href=""><img height="250" width="400" src="{{ object.image.url }}" alt=""></a>
+        <div class="w-50 d-flex flex-column">
+            <h3>Характеристики</h3>
+            <table>
+                <tbody>
+                <tr class="border">
+                    <td>Год выпуска</td>
+                    <td>{{ object.release_year }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Изготовитель</td>
+                    <td>{{ object.manufacturer }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Чипсет</td>
+                    <td>{{ object.chipset }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Видеопамять</td>
+                    <td>{{ object.VRAM }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Эффективная частота, МГц</td>
+                    <td>{{ object.effective_speed }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Рекомендуемый блок питания, Вт</td>
+                    <td>{{ object.recommended_power }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Тип памяти</td>
+                    <td>{{ object.vram_type }}</td>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+{% endblock content %}

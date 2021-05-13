@@ -1,0 +1,39 @@
+{% extends 'mainapp/base.html' %}
+{% load get_value %}
+{% load get_verbosename %}
+{% load getfield %}
+
+{% block title %}
+{% endblock %}
+
+{% if first_item_id == None and second_item_id == None %}
+
+    <h1>У вас нет комплектующих для сравнения</h1>
+
+
+{% else %}
+
+    {% block content %}
+
+        {% for key in fields %}
+            <div class="w-100 d-flex">
+                <table class="d-flex flex-column w-100">
+                    <tbody>
+                    <tr class="d-flex justify-content-sm-between border">
+                        <td><h2>{% get_verbose_field_name first_item key %}</h2></td>
+                        <td><h2>{{ first_item|getvalue:key }}</h2></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="d-flex flex-column w-100">
+                    <tbody>
+                    <tr class="d-flex justify-content-end border">
+                        <td><h2>{{ second_item|getvalue:key }}</h2></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+        <button><a href="{% url 'clear' %}">Очистить сравнение</a></button>
+    {% endblock %}
+{% endif %}

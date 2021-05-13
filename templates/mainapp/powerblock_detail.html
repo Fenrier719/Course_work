@@ -1,0 +1,47 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="">
+
+        <a href=""><img src="{{ object.image.url }}" alt=""></a>
+        <div class="w-50 d-flex flex-column">
+            <h3>Характеристики</h3>
+            <table>
+                <tbody>
+                <tr class="border">
+                    <td>Год выпуска</td>
+                    <td>{{ object.release_year }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Изготовитель</td>
+                    <td>{{ object.manufacturer }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Модель</td>
+                    <td>{{ object.model }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Мощность, Вт</td>
+                    <td>{{ object.power }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Форм-фактор</td>
+                    <td>{{ object.form_factor }}</td>
+                <tr>
+                <tr class="border">
+                    <td>КПД, %</td>
+                    <td>{{ object.kpd }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Питание материнской платы</td>
+                    <td>{{ object.motherboard_power }}</td>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+{% endblock content %}

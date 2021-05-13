@@ -1,0 +1,67 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="">
+
+        <a href=""><img src="{{ object.image.url }}" alt=""></a>
+        <div class="w-50 d-flex flex-column">
+            <h3>Характеристики</h3>
+            <table>
+                <tbody>
+                <tr class="border">
+                    <td>Год выпуска</td>
+                    <td>{{ object.release_year }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Изготовитель</td>
+                    <td>{{ object.manufacturer }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Модель</td>
+                    <td>{{ object.model }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Тип памяти</td>
+                    <td>{{ object.ram_type }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Форм-фактор</td>
+                    <td>{{ object.form_factor }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Сокет</td>
+                    <td>{{ object.socket }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Количество USB</td>
+                    <td>{{ object.amount_of_USB }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Количество HDMI</td>
+                    <td>{{ object.amount_of_HDMI }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Количество DisplayPort</td>
+                    <td>{{ object.amount_of_DisplayPort }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Количество VGA</td>
+                    <td>{{ object.amount_of_VGA }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Максимальная частота памяти, МГц</td>
+                    <td>{{ object.max_speed_of_RAM }}</td>
+                <tr>
+                <tr class="border">
+                    <td>Количество слотов для RAM</td>
+                    <td>{{ object.amount_of_slots_for_RAM }}</td>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+{% endblock content %}
